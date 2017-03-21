@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="ASCII"?>
+<modificationmarks:KAPSModificationRepository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BusComponents="edu.kit.ipd.sdq.kaps.xppu.buscomponents" xmlns:InterfaceRepository="edu.kit.ipd.sdq.kaps.xppu.interfacerepository" xmlns:modificationmarks="http://sdq.ipd.kit.edu/KAPSModificationmarks/1.0">
+  <seedModifications xsi:type="modificationmarks:KAPSSeedModifications">
+    <busBoxModifications>
+      <affectedElement xsi:type="BusComponents:ProfibusDPBox" href="plant2.xppu#Box"/>
+    </busBoxModifications>
+  </seedModifications>
+  <changePropagationSteps xsi:type="modificationmarks:ChangePropagationDueToHardwareChange">
+    <busBoxModifications toolderived="true">
+      <affectedElement xsi:type="BusComponents:ProfibusDPBox" href="plant2.xppu#Box"/>
+      <causingElements xsi:type="BusComponents:ProfibusDPBox" href="plant2.xppu#Box"/>
+    </busBoxModifications>
+    <busMasterModifications toolderived="true">
+      <affectedElement xsi:type="BusComponents:ProfibusDPMaster" href="plant2.xppu#CC_Master"/>
+      <causingElements xsi:type="InterfaceRepository:SignalInterface" href="plant2.xppu#CC1.to.Crane2"/>
+      <causingElements xsi:type="InterfaceRepository:SignalInterface" href="plant2.xppu#CC1.to.Box"/>
+      <causingElements xsi:type="InterfaceRepository:SignalInterface" href="plant2.xppu#CC1.to.Crane"/>
+    </busMasterModifications>
+    <busSlaveModifications toolderived="true">
+      <affectedElement xsi:type="BusComponents:ProfibusDPSlave" href="plant2.xppu#Crane2_Slave"/>
+      <causingElements xsi:type="InterfaceRepository:SignalInterface" href="plant2.xppu#Crane2.to.CC1"/>
+    </busSlaveModifications>
+    <busSlaveModifications toolderived="true">
+      <affectedElement xsi:type="BusComponents:ProfibusDPSlave" href="plant2.xppu#Crane1_Slave"/>
+      <causingElements xsi:type="InterfaceRepository:SignalInterface" href="plant2.xppu#Crane1.to.CC1"/>
+    </busSlaveModifications>
+    <busSlaveModifications toolderived="true">
+      <affectedElement xsi:type="BusComponents:ProfibusDPSlave" href="plant2.xppu#Conveyor1_Slave"/>
+      <causingElements xsi:type="InterfaceRepository:SignalInterface" href="plant2.xppu#Conveyor1.to.Crane1"/>
+    </busSlaveModifications>
+    <busSlaveModifications toolderived="true">
+      <affectedElement xsi:type="BusComponents:ProfibusDPSlave" href="plant2.xppu#Conveyor2_Slave"/>
+      <causingElements xsi:type="InterfaceRepository:SignalInterface" href="plant2.xppu#Conveyor2.to.Crane1"/>
+    </busSlaveModifications>
+    <busSlaveModifications toolderived="true">
+      <affectedElement xsi:type="BusComponents:ProfibusDPSlave" href="plant2.xppu#Conveyor4_Slave"/>
+      <causingElements xsi:type="InterfaceRepository:SignalInterface" href="plant2.xppu#Conveyor4.to.Crane2"/>
+    </busSlaveModifications>
+    <busSlaveModifications toolderived="true">
+      <affectedElement xsi:type="BusComponents:ProfibusDPSlave" href="plant2.xppu#Conveyor3_Slave"/>
+      <causingElements xsi:type="InterfaceRepository:SignalInterface" href="plant2.xppu#Conveyor3.to.Crane2"/>
+    </busSlaveModifications>
+    <busCableModifications toolderived="true">
+      <affectedElement xsi:type="BusComponents:ProfibusDPCable" href="plant2.xppu#CC1_to_Crane2"/>
+      <causingElements xsi:type="InterfaceRepository:SignalInterface" href="plant2.xppu#CC1.to.Crane2"/>
+      <causingElements xsi:type="InterfaceRepository:SignalInterface" href="plant2.xppu#Crane2.to.CC1"/>
+    </busCableModifications>
+    <busCableModifications toolderived="true">
+      <affectedElement xsi:type="BusComponents:ProfibusDPCable" href="plant2.xppu#Crane2_to_Conveyor4"/>
+      <causingElements xsi:type="InterfaceRepository:SignalInterface" href="plant2.xppu#Conveyor4.to.Crane2"/>
+    </busCableModifications>
+    <busCableModifications toolderived="true">
+      <affectedElement xsi:type="BusComponents:ProfibusDPCable" href="plant2.xppu#Crane1_to_Conveyor2"/>
+      <causingElements xsi:type="InterfaceRepository:SignalInterface" href="plant2.xppu#Conveyor2.to.Crane1"/>
+    </busCableModifications>
+    <busCableModifications toolderived="true">
+      <affectedElement xsi:type="BusComponents:ProfibusDPCable" href="plant2.xppu#Box_to_CC1"/>
+      <causingElements xsi:type="InterfaceRepository:SignalInterface" href="plant2.xppu#CC1.to.Box"/>
+    </busCableModifications>
+    <busCableModifications toolderived="true">
+      <affectedElement xsi:type="BusComponents:ProfibusDPCable" href="plant2.xppu#Crane1_to_Conveyor1"/>
+      <causingElements xsi:type="InterfaceRepository:SignalInterface" href="plant2.xppu#Conveyor1.to.Crane1"/>
+    </busCableModifications>
+    <busCableModifications toolderived="true">
+      <affectedElement xsi:type="BusComponents:ProfibusDPCable" href="plant2.xppu#Crane2_to_Conveyor3"/>
+      <causingElements xsi:type="InterfaceRepository:SignalInterface" href="plant2.xppu#Conveyor3.to.Crane2"/>
+    </busCableModifications>
+    <busCableModifications toolderived="true">
+      <affectedElement xsi:type="BusComponents:ProfibusDPCable" href="plant2.xppu#CC1_to_Crane1"/>
+      <causingElements xsi:type="InterfaceRepository:SignalInterface" href="plant2.xppu#Crane1.to.CC1"/>
+      <causingElements xsi:type="InterfaceRepository:SignalInterface" href="plant2.xppu#CC1.to.Crane"/>
+    </busCableModifications>
+  </changePropagationSteps>
+</modificationmarks:KAPSModificationRepository>

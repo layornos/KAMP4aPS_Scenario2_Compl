@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xPPU:Plant xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BusComponents="edu.kit.ipd.sdq.kaps.xppu.buscomponents" xmlns:ComponentRepository="edu.kit.ipd.sdq.kaps.xppu.componentrepository" xmlns:StructureRepository="edu.kit.ipd.sdq.kaps.xppu.structurerepository" xmlns:xPPU="edu.kit.ipd.sdq.kaps.xppu" id="MainPlant" PlantName="MainPlant">
+  <structures xsi:type="StructureRepository:Crane" id="Crane1">
+    <components xsi:type="BusComponents:ProfibusDPSlave" id="Crane1_Slave" connectedInterfaces="Crane1.to.CC1 Crane1.to.Conveyor1 Crane1.to.Conveyor2" signalinterface_master="Crane1.to.CC1"/>
+  </structures>
+  <structures xsi:type="StructureRepository:Crane" id="Crane2">
+    <components xsi:type="BusComponents:ProfibusDPSlave" id="Crane2_Slave" connectedInterfaces="Crane2.to.CC1 Crane2.to.Conveyor3 Crane2.to.Conveyor4" signalinterface_master="Crane2.to.CC1"/>
+  </structures>
+  <structures xsi:type="StructureRepository:Crane" id="Crane3">
+    <components xsi:type="BusComponents:ProfibusDPSlave" id="Crane3_Slave" connectedInterfaces="Crane3.to.Conveyor1" signalinterface_master="Crane3.to.Conveyor1"/>
+  </structures>
+  <structures xsi:type="StructureRepository:Crane" id="Crane4">
+    <components xsi:type="BusComponents:ProfibusDPSlave" id="Crane4_Slave" connectedInterfaces="Crane4.to.Conveyor1" signalinterface_master="Crane4.to.Conveyor1"/>
+  </structures>
+  <structures xsi:type="StructureRepository:Crane" id="Crane5">
+    <components xsi:type="BusComponents:ProfibusDPSlave" id="Crane5_Slave" connectedInterfaces="Crane5.to.Conveyor2" signalinterface_master="Crane5.to.Conveyor2"/>
+  </structures>
+  <structures xsi:type="StructureRepository:Crane" id="Crane6">
+    <components xsi:type="BusComponents:ProfibusDPSlave" id="Crane6_Slave" connectedInterfaces="Crane6.to.Conveyor2" signalinterface_master="Crane6.to.Conveyor2"/>
+  </structures>
+  <structures xsi:type="StructureRepository:Crane" id="Crane7">
+    <components xsi:type="BusComponents:ProfibusDPSlave" id="Crane7_Slave" connectedInterfaces="Crane7.to.Conveyor3" signalinterface_master="Crane7.to.Conveyor3"/>
+  </structures>
+  <structures xsi:type="StructureRepository:Crane" id="Crane8">
+    <components xsi:type="BusComponents:ProfibusDPSlave" id="Crane8_Slave" connectedInterfaces="Crane8.to.Conveyor3" signalinterface_master="Crane8.to.Conveyor3"/>
+  </structures>
+  <structures xsi:type="StructureRepository:Crane" id="Crane9">
+    <components xsi:type="BusComponents:ProfibusDPSlave" id="Crane9_Slave" connectedInterfaces="Crane9.to.Conveyor4" signalinterface_master="Crane9.to.Conveyor4"/>
+  </structures>
+  <structures xsi:type="StructureRepository:Crane" id="Crane10">
+    <components xsi:type="BusComponents:ProfibusDPSlave" id="Crane10_Slave" connectedInterfaces="Crane10.to.Conveyor4" signalinterface_master="Crane10.to.Conveyor4"/>
+  </structures>
+  <structures xsi:type="StructureRepository:Conveyor" id="Conveyor1">
+    <components xsi:type="BusComponents:ProfibusDPSlave" id="Conveyor1_Slave" connectedInterfaces="Conveyor1.to.Crane1 Conveyor1.to.Crane3 Conveyor1.to.Crane4" signalinterface_master="Conveyor1.to.Crane1"/>
+  </structures>
+  <structures xsi:type="StructureRepository:Conveyor" id="Conveyor2">
+    <components xsi:type="BusComponents:ProfibusDPSlave" id="Conveyor2_Slave" connectedInterfaces="Conveyor2.to.Crane1 Conveyor2.to.Crane5 Conveyor2.to.Crane6" signalinterface_master="Conveyor2.to.Crane1"/>
+  </structures>
+  <structures xsi:type="StructureRepository:Conveyor" id="Conveyor3">
+    <components xsi:type="BusComponents:ProfibusDPSlave" id="Conveyor3_Slave" connectedInterfaces="Conveyor3.to.Crane2 Conveyor3.to.Crane7 Conveyor3.to.Crane8" signalinterface_master="Conveyor3.to.Crane2"/>
+  </structures>
+  <structures xsi:type="StructureRepository:Conveyor" id="Conveyor4">
+    <components xsi:type="BusComponents:ProfibusDPSlave" id="Conveyor4_Slave" connectedInterfaces="Conveyor4.to.Crane2 Conveyor4.to.Crane10 Conveyor4.to.Crane9" signalinterface_master="Conveyor4.to.Crane2"/>
+  </structures>
+  <structures xsi:type="StructureRepository:ControlCabinet" id="CC1" controller="PLC">
+    <components xsi:type="ComponentRepository:Controller" id="PLC" controllerOf="CC1"/>
+    <components xsi:type="BusComponents:ProfibusDPMaster" id="CC_Master" connectedInterfaces="CC1.to.Box CC1.to.Crane CC1.to.Crane2" signalinterfaces="CC1.to.Box CC1.to.Crane CC1.to.Crane2" signalinterface_controller="CC1.to.Box"/>
+  </structures>
+  <structures xsi:type="StructureRepository:CommunicationNetwork" id="BusBoxes">
+    <components xsi:type="BusComponents:ProfibusDPBox" id="Box" connectedInterfaces="Box.to.CC1" signalinterfaces="Box.to.CC1" signalinterface_master="Box.to.CC1"/>
+  </structures>
+  <structures xsi:type="StructureRepository:CommunicationNetwork" id="BusCables">
+    <components xsi:type="BusComponents:ProfibusDPCable" id="CC1_to_Crane1" connectedInterfaces="CC1.to.Crane Crane1.to.CC1">
+      <SignalPlug1 id="Crane1.to.CC1"/>
+      <SignalPlug2 id="CC1.to.Crane"/>
+    </components>
+    <components xsi:type="BusComponents:ProfibusDPCable" id="CC1_to_Crane2" connectedInterfaces="CC1.to.Crane2 Crane2.to.CC1">
+      <SignalPlug1 id="Crane2.to.CC1"/>
+      <SignalPlug2 id="CC1.to.Crane2"/>
+    </components>
+    <components xsi:type="BusComponents:ProfibusDPCable" id="Box_to_CC1" connectedInterfaces="Box.to.CC1 CC1.to.Box">
+      <SignalPlug1 id="Box.to.CC1"/>
+      <SignalPlug2 id="CC1.to.Box"/>
+    </components>
+    <components xsi:type="BusComponents:ProfibusDPCable" id="Crane1_to_Conveyor1" connectedInterfaces="Conveyor1.to.Crane1 Crane1.to.Conveyor1">
+      <SignalPlug1 id="Crane1.to.Conveyor1"/>
+      <SignalPlug2 id="Conveyor1.to.Crane1"/>
+    </components>
+    <components xsi:type="BusComponents:ProfibusDPCable" id="Crane1_to_Conveyor2" connectedInterfaces="Conveyor2.to.Crane1 Crane1.to.Conveyor2">
+      <SignalPlug1 id="Crane1.to.Conveyor2"/>
+      <SignalPlug2 id="Conveyor2.to.Crane1"/>
+    </components>
+    <components xsi:type="BusComponents:ProfibusDPCable" id="Crane2_to_Conveyor3" connectedInterfaces="Conveyor3.to.Crane2 Crane2.to.Conveyor3">
+      <SignalPlug1 id="Crane2.to.Conveyor3"/>
+      <SignalPlug2 id="Conveyor3.to.Crane2"/>
+    </components>
+    <components xsi:type="BusComponents:ProfibusDPCable" id="Crane2_to_Conveyor4" connectedInterfaces="Conveyor4.to.Crane2 Crane2.to.Conveyor4">
+      <SignalPlug1 id="Crane2.to.Conveyor4"/>
+      <SignalPlug2 id="Conveyor4.to.Crane2"/>
+    </components>
+    <components xsi:type="BusComponents:ProfibusDPCable" id="Conveyor1_to_Crane3" connectedInterfaces="Conveyor1.to.Crane3 Crane3.to.Conveyor1">
+      <SignalPlug1 id="Conveyor1.to.Crane3"/>
+      <SignalPlug2 id="Crane3.to.Conveyor1"/>
+    </components>
+    <components xsi:type="BusComponents:ProfibusDPCable" id="Conveyor1_to_Crane4" connectedInterfaces="Conveyor1.to.Crane4 Crane4.to.Conveyor1">
+      <SignalPlug1 id="Conveyor1.to.Crane4"/>
+      <SignalPlug2 id="Crane4.to.Conveyor1"/>
+    </components>
+    <components xsi:type="BusComponents:ProfibusDPCable" id="Conveyor2_to_Crane5" connectedInterfaces="Conveyor2.to.Crane5 Crane5.to.Conveyor2">
+      <SignalPlug1 id="Conveyor2.to.Crane5"/>
+      <SignalPlug2 id="Crane5.to.Conveyor2"/>
+    </components>
+    <components xsi:type="BusComponents:ProfibusDPCable" id="Conveyor2_to_Crane6" connectedInterfaces="Conveyor2.to.Crane6 Crane6.to.Conveyor2">
+      <SignalPlug1 id="Conveyor2.to.Crane6"/>
+      <SignalPlug2 id="Crane6.to.Conveyor2"/>
+    </components>
+    <components xsi:type="BusComponents:ProfibusDPCable" id="Conveyor3_to_Crane7" connectedInterfaces="Conveyor3.to.Crane7 Crane7.to.Conveyor3">
+      <SignalPlug1 id="Conveyor3.to.Crane7"/>
+      <SignalPlug2 id="Crane7.to.Conveyor3"/>
+    </components>
+    <components xsi:type="BusComponents:ProfibusDPCable" id="Conveyor3_to_Crane8" connectedInterfaces="Conveyor3.to.Crane8 Crane8.to.Conveyor3">
+      <SignalPlug1 id="Conveyor3.to.Crane8"/>
+      <SignalPlug2 id="Crane8.to.Conveyor3"/>
+    </components>
+    <components xsi:type="BusComponents:ProfibusDPCable" id="Conveyor4_to_Crane9" connectedInterfaces="Conveyor4.to.Crane9 Crane9.to.Conveyor4">
+      <SignalPlug1 id="Conveyor4.to.Crane9"/>
+      <SignalPlug2 id="Crane9.to.Conveyor4"/>
+    </components>
+    <components xsi:type="BusComponents:ProfibusDPCable" id="Conveyor4_to_Crane10" connectedInterfaces="Conveyor4.to.Crane10 Crane10.to.Conveyor4">
+      <SignalPlug1 id="Conveyor4.to.Crane10"/>
+      <SignalPlug2 id="Crane10.to.Conveyor4"/>
+    </components>
+  </structures>
+  <interfaceRepository id="IR1" allInterfacesInPlant="Box.to.CC1 CC1.to.Box CC1.to.Crane CC1.to.Crane2 Crane1.to.CC1 Crane2.to.CC1 Conveyor1.to.Crane1 Conveyor2.to.Crane1 Conveyor3.to.Crane2 Conveyor4.to.Crane2 Crane1.to.Conveyor1 Crane1.to.Conveyor2 Crane2.to.Conveyor3 Crane2.to.Conveyor4 Conveyor1.to.Crane3 Conveyor1.to.Crane4 Conveyor2.to.Crane5 Conveyor2.to.Crane6 Conveyor3.to.Crane7 Conveyor3.to.Crane8 Conveyor4.to.Crane10 Conveyor4.to.Crane9 Crane10.to.Conveyor4 Crane3.to.Conveyor1 Crane4.to.Conveyor1 Crane5.to.Conveyor2 Crane6.to.Conveyor2 Crane7.to.Conveyor3 Crane8.to.Conveyor3 Crane9.to.Conveyor4"/>
+  <componentRepository id="CR1" allComponentsInPlant="PLC Box Box_to_CC1 CC1_to_Crane1 CC1_to_Crane2 CC_Master Crane1_Slave Crane2_Slave Crane1_to_Conveyor1 Crane1_to_Conveyor2 Crane2_to_Conveyor3 Crane2_to_Conveyor4 Conveyor1_Slave Conveyor2_Slave Conveyor3_Slave Conveyor4_Slave Conveyor1_to_Crane3 Conveyor1_to_Crane4 Conveyor2_to_Crane5 Conveyor2_to_Crane6 Conveyor3_to_Crane7 Conveyor3_to_Crane8 Conveyor4_to_Crane10 Conveyor4_to_Crane9 Crane10_Slave Crane3_Slave Crane4_Slave Crane5_Slave Crane6_Slave Crane7_Slave Crane8_Slave Crane9_Slave"/>
+</xPPU:Plant>
